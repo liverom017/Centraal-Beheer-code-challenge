@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  AbstractControl,
+} from '@angular/forms';
 import { KentekenformatterService } from 'src/app/services/kentekenformatter.service';
 import { FormdataService } from 'src/app/services/formdata.service';
 import { voertuigType, subType } from 'src/Interfaces';
@@ -78,6 +83,7 @@ export class VtFormComponent implements OnInit {
     if (this.getSelectCat.subCatogieen.length > 0) {
       this.subT = this.fs.getSubList(this.getSelectCat.id);
     } else {
+      this.catogorieForm.controls['subCat'].setValue('');
       this.subT = [];
     }
   }
@@ -105,4 +111,3 @@ export class VtFormComponent implements OnInit {
     console.log(this.getSelectCat.type, this.getSubType, this.getKenteken);
   }
 }
-

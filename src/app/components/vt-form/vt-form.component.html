@@ -130,13 +130,27 @@
           rounded
         "
         type="submit"
-        [disabled]="catogorieForm.invalid"
+        [disabled]="
+          catogorieForm.controls['catogorien'].invalid &&
+          catogorieForm.controls['catogorien'].touched &&
+          catogorieForm.controls['subCat'].invalid &&
+            catogorieForm.controls['subCat'].touched &&
+          catogorieForm.controls['kenteken'].invalid &&
+            catogorieForm.controls['kenteken'].touched
+        "
         (click)="onSubmit($event)"
       >
         Verzenden
       </button>
       <div
-        *ngIf="catogorieForm.invalid && catogorieForm.touched"
+        *ngIf="
+          catogorieForm.controls['catogorien'].invalid &&
+          catogorieForm.controls['catogorien'].touched &&
+          catogorieForm.controls['subCat'].invalid &&
+            catogorieForm.controls['subCat'].touched &&
+          catogorieForm.controls['kenteken'].invalid &&
+            catogorieForm.controls['kenteken'].touched
+        "
         class="
           bg-red-100
           border border-red-400
